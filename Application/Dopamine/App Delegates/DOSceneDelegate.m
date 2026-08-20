@@ -21,6 +21,16 @@
     self.window = window;
 }
 
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+    for (UIOpenURLContext *context in URLContexts) {
+        NSURL *url = context.URL;
+
+        if ([[url.scheme lowercaseString] isEqualToString:@"dopamine"]) {
+            NSLog(@"Dopamine URL received: %@", url);
+        }
+    }
+}
+
 + (void)relaunch
 {
     UIWindowScene *windowScene = (UIWindowScene *)[[[UIApplication sharedApplication] connectedScenes] anyObject];
