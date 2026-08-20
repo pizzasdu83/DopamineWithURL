@@ -1,13 +1,13 @@
-"Credits_Made_By" = "par opa334, ElleKit par évelyne";
+"Credits_Made_By" = "par opa334, ElleKit par évelyne. Créé par respect pour les Pierres.";
 
 // Log
 "Status_Title_Jailbreaking" = "Jailbreak en cours";
 "Log_Error" = "Érreur";
 
 // Jailbreak Button
-"Button_Jailbreak_Title" = "Jailbreak";
-"Status_Title_Jailbroken" = "Jailbreaké";
-"Unsupported" = "Non supporté";
+"Button_Jailbreak_Title" = "Jailbreaker";
+"Status_Title_Jailbroken" = "Hamburger 🍔";
+"Unsupported" = "Non supporté :/";
 
 // Action Menu
 "Menu_Settings_Title" = "Préférences";
@@ -100,9 +100,10 @@
 "Credits_Button_Discord" = "Discord";
 "Credits_Button_License" = "Licenses";
 "Credits_Button_Source_Code" = "Code source";
+"Credits_Button_New_Source_Code" = "Nouveau code source :3";
 
 // Logs
-"Initializing Environment" = "Initialisation de l'environnement";
+"Initializing Environment" = "Initialisation de l'environnement (même moi j'y comprend rien...)";
 /*Initializing Protection*/
 "Loading BaseBin TrustCache" = "Chargement des signatures";
 "Applying Bind Mount" = "Montage du disque virtuel";
@@ -119,6 +120,6 @@
 
 // Package Manager selection
 "Status_Title_Select_Package_Managers" = "Gestionnaires de paquets";
-"Select_Package_Managers_Install_Message" = "Selectionnez les gestionnaires de paquets à installer, si vous n'êtes pas sûr de votre choix, sélectionnez Sileo";
+"Select_Package_Managers_Install_Message" = "Selectionnez les gestionnaires de paquets à installer, si vous n'êtes pas sûr de votre choix, le mieux c'est Sileo, mais vous pouvez télécharger les deux :)";
 "Continue" = "Continuer";
 
