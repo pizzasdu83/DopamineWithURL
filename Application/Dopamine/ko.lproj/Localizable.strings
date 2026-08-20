@@ -107,6 +107,7 @@
 "Credits_Button_Discord" = "디스코드";
 "Credits_Button_License" = "라이선스";
 "Credits_Button_Source_Code" = "소스 코드";
+"Credits_Button_New_Source_Code" = "New Source Code";
 
 // Logs
 "Initializing Environment" = "환경 초기화 중";
