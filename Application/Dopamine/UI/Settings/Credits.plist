@@ -44,6 +44,22 @@
 		</dict>
 		<dict>
 			<key>action</key>
+			<string>openDiscord</string>
+			<key>buttonHeight</key>
+			<integer>44</integer>
+			<key>cell</key>
+			<string>PSStaticTextCell</string>
+			<key>cellClass</key>
+			<string>DOButtonCell</string>
+			<key>image</key>
+			<string>bubble.left.and.bubble.right.fill</string>
+			<key>key</key>
+			<string>discord</string>
+			<key>title</key>
+			<string>Credits_Button_Discord</string>
+		</dict>
+		<dict>
+			<key>action</key>
 			<string>openLicense</string>
 			<key>buttonHeight</key>
 			<integer>44</integer>
@@ -330,22 +346,6 @@
 			<string>PSGroupCell</string>
 			<key>footerText</key>
 			<string></string>
-		</dict>
-		<dict>
-			<key>action</key>
-			<string>openDiscord</string>
-			<key>buttonHeight</key>
-			<integer>44</integer>
-			<key>cell</key>
-			<string>PSStaticTextCell</string>
-			<key>cellClass</key>
-			<string>DOButtonCell</string>
-			<key>image</key>
-			<string>bubble.left.and.bubble.right.fill</string>
-			<key>key</key>
-			<string>discord</string>
-			<key>title</key>
-			<string>Credits_Button_Discord</string>
 		</dict>
 	</array>
 	<key>title</key>
