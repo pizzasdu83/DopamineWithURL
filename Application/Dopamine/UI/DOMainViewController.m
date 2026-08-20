@@ -16,14 +16,18 @@
 #import <pthread.h>
 #import <sys/sysctl.h>
 #import <libjailbreak/libjailbreak.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface DOMainViewController ()
+@interface DOMainViewController () <AVAudioPlayerDelegate>
 
 @property DOJailbreakButton *jailbreakBtn;
 @property NSArray<NSLayoutConstraint *> *jailbreakButtonConstraints;
 @property DOActionMenuButton *updateButton;
 @property(nonatomic) BOOL hideStatusBar;
 @property(nonatomic) BOOL hideHomeIndicator;
+
+@property(nonatomic, strong) AVAudioPlayer *introPlayer;
+@property(nonatomic, strong) AVAudioPlayer *musicPlayer;
 
 @end
 
@@ -32,6 +36,62 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupStack];
+    [self startBackgroundMusic];
+}
+
+- (void)startBackgroundMusic
+{
+    NSURL *introURL = [[NSBundle mainBundle] URLForResource:@"intro"
+                                              withExtension:@"wav"];
+
+    NSURL *musicURL = [[NSBundle mainBundle] URLForResource:@"loop"
+                                              withExtension:@"wav"];
+
+    if (!introURL || !musicURL) {
+        NSLog(@"[Dopamine] Fichiers audio introuvables");
+        return;
+    }
+
+    NSError *error = nil;
+
+    self.introPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:introURL
+                                                              error:&error];
+
+    if (!self.introPlayer || error) {
+        NSLog(@"[Dopamine] Erreur intro : %@", error);
+        return;
+    }
+
+    error = nil;
+
+    self.musicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:musicURL
+                                                               error:&error];
+
+    if (!self.musicPlayer || error) {
+        NSLog(@"[Dopamine] Erreur musique : %@", error);
+        return;
+    }
+
+    self.introPlayer.delegate = self;
+
+    self.introPlayer.volume = 0.25;
+    self.musicPlayer.volume = 0.25;
+
+    self.introPlayer.numberOfLoops = 0;
+    self.musicPlayer.numberOfLoops = -1;
+
+    [self.introPlayer prepareToPlay];
+    [self.musicPlayer prepareToPlay];
+
+    [self.introPlayer play];
+}
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player
+                       successfully:(BOOL)flag
+{
+    if (player == self.introPlayer && flag) {
+        [self.musicPlayer play];
+    }
 }
 
 -(void)setupStack
@@ -142,6 +202,9 @@
             [headerView setTransform:CGAffineTransformMakeTranslation(0, -25)];
             self.updateButton.alpha = 0;
         } completion:nil];
+
+        [self.introPlayer stop];
+        [self.musicPlayer stop];
         
         [self startJailbreak];
         
