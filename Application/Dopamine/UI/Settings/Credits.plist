@@ -28,22 +28,6 @@
 		</dict>
 		<dict>
 			<key>action</key>
-			<string>openNewSourceCode</string>
-			<key>buttonHeight</key>
-			<integer>44</integer>
-			<key>cell</key>
-			<string>PSStaticTextCell</string>
-			<key>cellClass</key>
-			<string>DOButtonCell</string>
-			<key>image</key>
-			<string>filemenu.and.cursorarrow</string>
-			<key>key</key>
-			<string>src</string>
-			<key>title</key>
-			<string>Credits_Button_New_Source_Code</string>
-		</dict>
-		<dict>
-			<key>action</key>
 			<string>openDiscord</string>
 			<key>buttonHeight</key>
 			<integer>44</integer>
