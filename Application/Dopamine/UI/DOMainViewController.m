@@ -41,6 +41,36 @@
 
 - (void)startBackgroundMusic
 {
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+
+    NSError *sessionError = nil;
+
+    [session setCategory:AVAudioSessionCategoryPlayback
+
+                     mode:AVAudioSessionModeDefault
+
+                  options:0
+
+                    error:&sessionError];
+
+    if (sessionError) {
+
+        NSLog(@"[Dopamine] Erreur catégorie audio : %@", sessionError);
+
+        return;
+
+    }
+
+    [session setActive:YES error:&sessionError];
+
+    if (sessionError) {
+
+        NSLog(@"[Dopamine] Erreur activation audio : %@", sessionError);
+
+        return;
+
+    }
+    
     NSURL *introURL = [[NSBundle mainBundle] URLForResource:@"intro"
                                               withExtension:@"wav"];
 
@@ -74,8 +104,8 @@
 
     self.introPlayer.delegate = self;
 
-    self.introPlayer.volume = 0.25;
-    self.musicPlayer.volume = 0.25;
+    self.introPlayer.volume = 1.0;
+    self.musicPlayer.volume = 1.0;
 
     self.introPlayer.numberOfLoops = 0;
     self.musicPlayer.numberOfLoops = -1;
@@ -83,14 +113,16 @@
     [self.introPlayer prepareToPlay];
     [self.musicPlayer prepareToPlay];
 
-    [self.introPlayer play];
+    BOOL playing = [self.introPlayer play];
+    NSLog(@"[Dopamine] Intro play = %@", playing ? @"YES" : @"NO");
 }
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player
                        successfully:(BOOL)flag
 {
     if (player == self.introPlayer && flag) {
-        [self.musicPlayer play];
+        BOOL playing = [self.musicPlayer play];
+        NSLog(@"[Dopamine] Loop play = %@", playing ? @"YES" : @"NO");
     }
 }
 
