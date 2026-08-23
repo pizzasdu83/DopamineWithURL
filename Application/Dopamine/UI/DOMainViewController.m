@@ -43,34 +43,25 @@
 {
     AVAudioSession *session = [AVAudioSession sharedInstance];
 
-    NSError *sessionError = nil;
+    NSError *error = nil;
 
     [session setCategory:AVAudioSessionCategoryPlayback
-
                      mode:AVAudioSessionModeDefault
-
                   options:0
+                    error:&error];
 
-                    error:&sessionError];
-
-    if (sessionError) {
-
-        NSLog(@"[Dopamine] Erreur catégorie audio : %@", sessionError);
-
+    if (error) {
+        NSLog(@"Audio session category error: %@", error);
         return;
-
     }
 
-    [session setActive:YES error:&sessionError];
+    [session setActive:YES error:&error];
 
-    if (sessionError) {
-
-        NSLog(@"[Dopamine] Erreur activation audio : %@", sessionError);
-
+    if (error) {
+        NSLog(@"Audio session activation error: %@", error);
         return;
-
     }
-    
+
     NSURL *introURL = [[NSBundle mainBundle] URLForResource:@"intro"
                                               withExtension:@"wav"];
 
@@ -78,17 +69,15 @@
                                               withExtension:@"wav"];
 
     if (!introURL || !musicURL) {
-        NSLog(@"[Dopamine] Fichiers audio introuvables");
+        NSLog(@"Audio files missing");
         return;
     }
-
-    NSError *error = nil;
 
     self.introPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:introURL
                                                               error:&error];
 
-    if (!self.introPlayer || error) {
-        NSLog(@"[Dopamine] Erreur intro : %@", error);
+    if (!self.introPlayer) {
+        NSLog(@"Intro player error: %@", error);
         return;
     }
 
@@ -97,8 +86,8 @@
     self.musicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:musicURL
                                                                error:&error];
 
-    if (!self.musicPlayer || error) {
-        NSLog(@"[Dopamine] Erreur musique : %@", error);
+    if (!self.musicPlayer) {
+        NSLog(@"Loop player error: %@", error);
         return;
     }
 
@@ -110,20 +99,37 @@
     self.introPlayer.numberOfLoops = 0;
     self.musicPlayer.numberOfLoops = -1;
 
-    [self.introPlayer prepareToPlay];
-    [self.musicPlayer prepareToPlay];
+    BOOL introPrepared = [self.introPlayer prepareToPlay];
+    BOOL loopPrepared = [self.musicPlayer prepareToPlay];
+
+    NSString *debug = [NSString stringWithFormat:
+        @"Intro:\nURL = %@\nDuration = %.2f\nPrepared = %@\n\nLoop:\nURL = %@\nDuration = %.2f\nPrepared = %@",
+        introURL.path,
+        self.introPlayer.duration,
+        introPrepared ? @"YES" : @"NO",
+        musicURL.path,
+        self.musicPlayer.duration,
+        loopPrepared ? @"YES" : @"NO"
+    ];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Audio Debug"
+                                                                   message:debug
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"OK"
+                                               style:UIAlertActionStyleDefault
+                                             handler:nil]];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+
+    NSLog(@"Intro duration: %f", self.introPlayer.duration);
+    NSLog(@"Loop duration: %f", self.musicPlayer.duration);
+    NSLog(@"Intro prepared: %@", introPrepared ? @"YES" : @"NO");
+    NSLog(@"Loop prepared: %@", loopPrepared ? @"YES" : @"NO");
 
     BOOL playing = [self.introPlayer play];
-    NSLog(@"[Dopamine] Intro play = %@", playing ? @"YES" : @"NO");
-}
 
-- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player
-                       successfully:(BOOL)flag
-{
-    if (player == self.introPlayer && flag) {
-        BOOL playing = [self.musicPlayer play];
-        NSLog(@"[Dopamine] Loop play = %@", playing ? @"YES" : @"NO");
-    }
+    NSLog(@"Intro playing: %@", playing ? @"YES" : @"NO");
 }
 
 -(void)setupStack
