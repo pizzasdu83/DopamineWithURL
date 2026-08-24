@@ -253,6 +253,8 @@
 		8CF3E8662F72D57800931CA8 /* DarkSword.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3E85B2F72D50200931CA8 /* DarkSword.m */; };
 		8CF3E8672F72DD9400931CA8 /* DarkSword.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF3E8582F72D45800931CA8 /* DarkSword.framework */; };
 		8CF3E8682F72DD9400931CA8 /* DarkSword.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF3E8582F72D45800931CA8 /* DarkSword.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9F8854D7CB3FC8A65951EF78 /* intro.wav in Resources */ = {isa = PBXBuildFile; fileRef = F6A0FF25113B2D1CE306F4F0 /* intro.wav */; };
+		82D2C404224C6A2C1CD1D773 /* loop.wav in Resources */ = {isa = PBXBuildFile; fileRef = B9D98FB0B3CBE6DCE991E2CB /* loop.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -697,6 +699,8 @@
 		8CF3E85B2F72D50200931CA8 /* DarkSword.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DarkSword.m; sourceTree = "<group>"; };
 		8CF3E85E2F72D51200931CA8 /* DarkSword.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DarkSword.h; sourceTree = "<group>"; };
 		C075B0CB2B8F2BCE009A26BB /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F6A0FF25113B2D1CE306F4F0 /* intro.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = intro.wav; sourceTree = "<group>"; };
+		B9D98FB0B3CBE6DCE991E2CB /* loop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = loop.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -1408,6 +1412,8 @@
 		8CB94F012B59E16D0098BAFD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F6A0FF25113B2D1CE306F4F0 /* intro.wav */,
+				B9D98FB0B3CBE6DCE991E2CB /* loop.wav */,
 				8C05C59E2B759F8A0097A931 /* bootstrap_1800.tar.zst */,
 				8C05C59D2B759F8A0097A931 /* bootstrap_1900.tar.zst */,
 				8CB94F032B59E17A0098BAFD /* basebin.tar */,
@@ -1976,6 +1982,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F8854D7CB3FC8A65951EF78 /* intro.wav in Resources */,
+				82D2C404224C6A2C1CD1D773 /* loop.wav in Resources */,
 				8C5FF1CB301BAAF100BCA01F /* launchctl_1_1.2.0_iphoneos-arm64.deb in Resources */,
 				8C609C9F2C19B6FA0023DD12 /* libkrw-dopamine.deb in Resources */,
 				04DD0B372B7BA6180055DE4F /* LICENSE.md in Resources */,
