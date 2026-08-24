@@ -42,6 +42,9 @@
 
 - (void)startBackgroundMusic
 {
+    [self.introPlayer stop];
+    [self.musicPlayer stop];
+    
     AVAudioSession *session = [AVAudioSession sharedInstance];
 
     NSError *error = nil;
