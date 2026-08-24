@@ -3,6 +3,7 @@
 //  Dopamine
 //
 //  Created by tomt000 on 08/01/2024.
+//  Modified by SaaS on 08/2026
 //
 
 #import "DOMainViewController.h"
@@ -102,6 +103,7 @@
     BOOL introPrepared = [self.introPlayer prepareToPlay];
     BOOL loopPrepared = [self.musicPlayer prepareToPlay];
 
+#if DEBUG
     NSString *debug = [NSString stringWithFormat:
         @"Intro:\nURL = %@\nDuration = %.2f\nPrepared = %@\n\nLoop:\nURL = %@\nDuration = %.2f\nPrepared = %@",
         introURL.path,
@@ -111,16 +113,17 @@
         self.musicPlayer.duration,
         loopPrepared ? @"YES" : @"NO"
     ];
-    
+
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Audio Debug"
                                                                    message:debug
                                                             preferredStyle:UIAlertControllerStyleAlert];
-    
+
     [alert addAction:[UIAlertAction actionWithTitle:@"OK"
                                                style:UIAlertActionStyleDefault
                                              handler:nil]];
-    
+
     [self presentViewController:alert animated:YES completion:nil];
+#endif
 
     NSLog(@"Intro duration: %f", self.introPlayer.duration);
     NSLog(@"Loop duration: %f", self.musicPlayer.duration);
@@ -130,6 +133,17 @@
     BOOL playing = [self.introPlayer play];
 
     NSLog(@"Intro playing: %@", playing ? @"YES" : @"NO");
+}
+
+#pragma mark - AVAudioPlayerDelegate
+
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    // Once the intro finishes, hand off to the looping background track.
+    if (player == self.introPlayer && flag) {
+        BOOL loopPlaying = [self.musicPlayer play];
+        NSLog(@"Loop playing: %@", loopPlaying ? @"YES" : @"NO");
+    }
 }
 
 -(void)setupStack
@@ -413,44 +427,6 @@
         [self.updateButton setTransform:CGAffineTransformIdentity];
         [self.updateButton setAlpha:1];
     } completion:nil];
-}
-
--(void)simulateJailbreak
-{
-    // Let's simulate a "jailbreak" using grand central dispatch
-
-    DOUIManager *uiManager = [DOUIManager sharedInstance];
-
-    static BOOL didFinish = NO; //not thread safe lol
-    
-
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [uiManager completeJailbreak];
-        [uiManager sendLog:@"Rebooting Userspace" debug: NO];
-        didFinish = YES;
-        [self fadeToBlack: ^{
-
-        }];
-    });
-
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [NSThread sleepForTimeInterval:0.2];
-        [uiManager sendLog:@"Launching kexploitd" debug: NO];
-        [NSThread sleepForTimeInterval:0.5];
-        [uiManager sendLog:@"Launching oobPCI" debug: NO];
-        [NSThread sleepForTimeInterval:0.15];
-        [uiManager sendLog:@"Gaining r/w" debug: NO];
-        [NSThread sleepForTimeInterval:0.8];
-        [uiManager sendLog:@"Patchfinding" debug: NO];
-        NSArray *types = @[@"AMFI", @"PAC", @"KTRR", @"KPP", @"PPL", @"KPF", @"APRR", @"AMCC", @"PAN", @"PXN", @"ASLR", @"OPA"]; //Ever heard of the legendary opa bypass
-        while (true)
-        {
-            [NSThread sleepForTimeInterval:0.6 * rand() / RAND_MAX];
-            if (didFinish) break;
-            NSString *type = types[arc4random_uniform((uint32_t)types.count)];
-            [uiManager sendLog:[NSString stringWithFormat:@"Bypassing %@", type] debug: NO];
-        }
-    });
 }
 
 - (void)fadeToBlack:(void (^)(void))completion
