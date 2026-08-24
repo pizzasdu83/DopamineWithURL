@@ -6,9 +6,25 @@
 		<key>key</key>
 		<string>default</string>
 		<key>name</key>
-		<string>Dopamine</string>
+		<string>DopamineLauncher</string>
 		<key>image</key>
 		<string>Background_Green.jpg</string>
+		<key>actionMenuColor</key>
+		<string>723f3f3f</string>
+		<key>windowColor</key>
+		<string>994c4c4c</string>
+		<key>blur</key>
+		<integer>18</integer>
+		<key>titleShadow</key>
+		<false/>
+	</dict>
+    <dict>
+		<key>key</key>
+		<string>default</string>
+		<key>name</key>
+		<string>Dopamine</string>
+		<key>image</key>
+		<string>Background_GEEN.jpg</string>
 		<key>actionMenuColor</key>
 		<string>723f3f3f</string>
 		<key>windowColor</key>
