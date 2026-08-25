@@ -3,7 +3,7 @@
 //  Dopamine
 //
 //  Created by tomt000 on 08/01/2024.
-//  Modified by SaaS on 08/2026
+//  URL support and music playing by SaaS on 08/2026
 //
 
 #import "DOMainViewController.h"
@@ -333,6 +333,13 @@
         self.lastAppliedThemeKey = currentThemeKey;
         [self startBackgroundMusic];
     }
+}
+
+- (void)stopAllAudio
+{
+    [self.introPlayer stop];
+    [self.musicPlayer stop];
+    [self.JelbrekingPlayer stop];
 }
 
 - (void)startJailbreakFromURLScheme
