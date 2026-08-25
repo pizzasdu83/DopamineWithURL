@@ -14,6 +14,8 @@
 
 @interface DOSceneDelegate ()
 
+@property (nonatomic, strong) NSSet<UIOpenURLContext *> *pendingURLContexts;
+
 @end
 
 @implementation DOSceneDelegate
@@ -25,8 +27,11 @@
     self.window = window;
 
     if (connectionOptions.URLContexts.count > 0) {
-        // App was launched cold via a dopamine:// URL — openURLContexts: is not called in this case, so handle it here.
-        [self scene:scene openURLContexts:connectionOptions.URLContexts];
+        // App was launched cold via a dopamine:// URL. The scene isn't fully
+        // active yet at this point (still mid system launch transition), so
+        // acting on the UI now can silently be ignored. Store it and handle
+        // it once sceneDidBecomeActive: fires instead.
+        self.pendingURLContexts = connectionOptions.URLContexts;
     }
 }
 
@@ -90,6 +95,16 @@
     UIWindowScene *windowScene = (UIWindowScene *)[[[UIApplication sharedApplication] connectedScenes] anyObject];
     DOSceneDelegate *instance = (DOSceneDelegate *)windowScene.delegate;
 
+    UINavigationController *oldNavigationController = (UINavigationController *)instance.window.rootViewController;
+    if ([oldNavigationController isKindOfClass:[UINavigationController class]]) {
+        for (UIViewController *viewController in oldNavigationController.viewControllers) {
+            if ([viewController isKindOfClass:[DOMainViewController class]]) {
+                [(DOMainViewController *)viewController stopAllAudio];
+                break;
+            }
+        }
+    }
+
     [UIView animateWithDuration:0.3 animations:^{
         instance.window.alpha = 0;
     } completion:^(BOOL finished) {
@@ -115,6 +130,11 @@
 - (void)sceneDidBecomeActive:(UIScene *)scene {
     // Called when the scene has moved from an inactive state to an active state.
     // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+    if (self.pendingURLContexts.count > 0) {
+        NSSet<UIOpenURLContext *> *contexts = self.pendingURLContexts;
+        self.pendingURLContexts = nil;
+        [self scene:scene openURLContexts:contexts];
+    }
 }
 
 
