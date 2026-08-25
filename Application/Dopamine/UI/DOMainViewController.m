@@ -30,6 +30,7 @@
 
 @property(nonatomic, strong) AVAudioPlayer *introPlayer;
 @property(nonatomic, strong) AVAudioPlayer *musicPlayer;
+@property(nonatomic, strong) NSString *lastAppliedThemeKey;
 
 @end
 
@@ -38,13 +39,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupStack];
-    [self.introPlayer stop];
-    [self.musicPlayer stop];
-
 }
 
 - (void)startBackgroundMusic
 {
+    [self.introPlayer stop];
+    [self.musicPlayer stop];
+
     if (![[[DOThemeManager sharedInstance] enabledTheme].key isEqualToString:@"default"]) {
         return;
     }
@@ -316,7 +317,12 @@
 {
     [super viewWillAppear:animated];
     [self.jailbreakBtn.button setTitle:[self jailbreakButtonTitle] forState:UIControlStateNormal];
-    [self startBackgroundMusic];
+
+    NSString *currentThemeKey = [[DOThemeManager sharedInstance] enabledTheme].key;
+    if (![currentThemeKey isEqualToString:self.lastAppliedThemeKey]) {
+        self.lastAppliedThemeKey = currentThemeKey;
+        [self startBackgroundMusic];
+    }
 }
 
 - (void)startJailbreakFromURLScheme
