@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DOMainViewController : UIViewController <DOActionMenuDelegate>
 
+- (void)startJailbreakFromURLScheme;
+
 @end
 
 NS_ASSUME_NONNULL_END
