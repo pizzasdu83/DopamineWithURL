@@ -3,10 +3,14 @@
 //  Dopamine
 //
 //  Created by Lars Fröder on 23.09.23.
+//  Added url support by SaaS on 08.2026
 //
 
 #import "DOSceneDelegate.h"
 #import "DONavigationController.h"
+#import "DOMainViewController.h"
+#import "DOEnvironmentManager.h"
+#import "DOUIManager.h"
 
 @interface DOSceneDelegate ()
 
@@ -27,7 +31,52 @@
 
         if ([[url.scheme lowercaseString] isEqualToString:@"dopamine"]) {
             NSLog(@"Dopamine URL received: %@", url);
+
+            if ([[url.host lowercaseString] isEqualToString:@"jailbreak"]) {
+                [self handleJailbreakURLRequest];
+            }
         }
+    }
+}
+
+- (void)handleJailbreakURLRequest
+{
+    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    if (![navigationController isKindOfClass:[UINavigationController class]]) {
+        return;
+    }
+
+    DOMainViewController *mainViewController = nil;
+    for (UIViewController *viewController in navigationController.viewControllers) {
+        if ([viewController isKindOfClass:[DOMainViewController class]]) {
+            mainViewController = (DOMainViewController *)viewController;
+            break;
+        }
+    }
+    if (!mainViewController) {
+        return;
+    }
+
+    BOOL isJailbroken = [[DOEnvironmentManager sharedManager] isJailbroken] || [[DOEnvironmentManager sharedManager] isJailbrokenWithOtherJailbreak];
+
+    if (isJailbroken) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:DOLocalizedString(@"URLScheme_Already_Jailbroken_Title")
+                                                                         message:DOLocalizedString(@"URLScheme_Already_Jailbroken_Message")
+                                                                  preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [mainViewController presentViewController:alert animated:YES completion:nil];
+        return;
+    }
+
+    void (^triggerJailbreak)(void) = ^{
+        [mainViewController startJailbreakFromURLScheme];
+    };
+
+    if (navigationController.topViewController != mainViewController) {
+        [navigationController popToViewController:mainViewController animated:YES];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), triggerJailbreak);
+    } else {
+        triggerJailbreak();
     }
 }
 
