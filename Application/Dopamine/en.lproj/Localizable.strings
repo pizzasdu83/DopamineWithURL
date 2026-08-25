@@ -9,6 +9,10 @@
 "Status_Title_Jailbroken" = "Jailbroken";
 "Unsupported" = "Unsupported";
 
+// URL Scheme
+"URLScheme_Already_Jailbroken_Title" = "Already Jailbroken";
+"URLScheme_Already_Jailbroken_Message" = "This device is already jailbroken. :/";
+
 // Action Menu
 "Menu_Settings_Title" = "Settings";
 "Menu_Restart_SpringBoard_Title" = "Restart SpringBoard";
