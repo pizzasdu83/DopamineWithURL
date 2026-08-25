@@ -9,6 +9,10 @@
 "Status_Title_Jailbroken" = "Hamburger 🍔";
 "Unsupported" = "Non supporté :/";
 
+// URL Scheme
+"URLScheme_Already_Jailbroken_Title" = "Déja Dopé!";
+"URLScheme_Already_Jailbroken_Message" = "Cet appareil est déjà jailbreaké. :/";
+
 // Action Menu
 "Menu_Settings_Title" = "Préférences";
 "Menu_Restart_SpringBoard_Title" = "Redémarrer le SpringBoard";
