@@ -319,6 +319,15 @@
     [self startBackgroundMusic];
 }
 
+- (void)startJailbreakFromURLScheme
+{
+    if (!self.jailbreakBtn.enabled) {
+        return;
+    }
+    [self.jailbreakBtn.button sendActionsForControlEvents:UIControlEventTouchUpInside];
+}
+
+
 - (void)startJailbreak
 {
     DOJailbreaker *jailbreaker = [[DOJailbreaker alloc] init];
