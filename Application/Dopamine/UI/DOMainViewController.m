@@ -40,6 +40,37 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupStack];
+    [self setupJailbreakSound];
+}
+
+- (void)setupJailbreakSound
+{
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    NSError *sessionError = nil;
+    [session setCategory:AVAudioSessionCategoryPlayback
+                     mode:AVAudioSessionModeDefault
+                  options:0
+                    error:&sessionError];
+    [session setActive:YES error:&sessionError];
+
+    NSURL *jelbrekingURL = [[NSBundle mainBundle] URLForResource:@"Jelbreking"
+                                                    withExtension:@"wav"];
+    if (!jelbrekingURL) {
+        NSLog(@"Jailbreak sound missing");
+        return;
+    }
+
+    NSError *error = nil;
+    self.JelbrekingPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:jelbrekingURL
+                                                                    error:&error];
+    if (!self.JelbrekingPlayer) {
+        NSLog(@"Jailbreak sound player error: %@", error);
+        return;
+    }
+
+    self.JelbrekingPlayer.volume = 0.25;
+    self.JelbrekingPlayer.numberOfLoops = -1;
+    [self.JelbrekingPlayer prepareToPlay];
 }
 
 - (void)startBackgroundMusic
@@ -77,9 +108,6 @@
 
     NSURL *musicURL = [[NSBundle mainBundle] URLForResource:@"loop"
                                               withExtension:@"wav"];
-                                              
-    NSURL *JelbrekingURL = [[NSBundle mainBundle] URLForResource:@"Jelbreking"
-                                              withExtension:@"wav"];
 
     if (!introURL || !musicURL) {
         NSLog(@"Audio files missing");
@@ -104,28 +132,16 @@
         return;
     }
 
-    self.JelbrekingPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:JelbrekingURL
-                                                               error:&error];
-
-    if (!self.JelbrekingPlayer) {
-        NSLog(@"Loop player error: %@", error);
-        return;
-    }
-
-
     self.introPlayer.delegate = self;
 
     self.introPlayer.volume = 0.25;
     self.musicPlayer.volume = 0.25;
-    self.JelbrekingPlayer.volume = 0.25;
 
     self.introPlayer.numberOfLoops = 0;
     self.musicPlayer.numberOfLoops = -1;
-    self.JelbrekingPlayer.numberOfLoops = -1;
 
     BOOL introPrepared = [self.introPlayer prepareToPlay];
     BOOL loopPrepared = [self.musicPlayer prepareToPlay];
-    BOOL JelbrekingPrepared = [self.musicPlayer prepareToPlay];
 
     NSLog(@"Intro duration: %f", self.introPlayer.duration);
     NSLog(@"Loop duration: %f", self.musicPlayer.duration);
@@ -376,6 +392,8 @@
         BOOL showLogs = YES;
         [jailbreaker runWithError:&error didRemoveJailbreak:&didRemove showLogs:&showLogs];
         dispatch_async(dispatch_get_main_queue(), ^{
+            [self.JelbrekingPlayer stop];
+
             if (error && showLogs) {
                 [[DOUIManager sharedInstance] sendLog:[NSString stringWithFormat:@"Jailbreak failed with error: %@", error] debug:NO];
                 [self.navigationController pushViewController:[[DOLogCrashViewController alloc] initWithTitle:[error localizedDescription]] animated:YES];
