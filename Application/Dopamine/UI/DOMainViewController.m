@@ -38,13 +38,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupStack];
+    [self.introPlayer stop];
+    [self.musicPlayer stop];
+
 }
 
 - (void)startBackgroundMusic
 {
-    [self.introPlayer stop];
-    [self.musicPlayer stop];
-
     if (![[[DOThemeManager sharedInstance] enabledTheme].key isEqualToString:@"default"]) {
         return;
     }
