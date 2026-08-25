@@ -107,7 +107,7 @@
 "Credits_Button_New_Source_Code" = "Nouveau code source :3";
 
 // Logs
-"Initializing Environment" = "Initialisation de l'environnement (même moi j'y comprend rien...)";
+"Initializing Environment" = "Initialisation de l'environnement\n(même moi j'y comprend rien...)";
 /*Initializing Protection*/
 "Loading BaseBin TrustCache" = "Chargement des signatures";
 "Applying Bind Mount" = "Montage du disque virtuel";
