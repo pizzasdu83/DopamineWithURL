@@ -255,6 +255,7 @@
 		8CF3E8682F72DD9400931CA8 /* DarkSword.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF3E8582F72D45800931CA8 /* DarkSword.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9F8854D7CB3FC8A65951EF78 /* intro.wav in Resources */ = {isa = PBXBuildFile; fileRef = F6A0FF25113B2D1CE306F4F0 /* intro.wav */; };
 		82D2C404224C6A2C1CD1D773 /* loop.wav in Resources */ = {isa = PBXBuildFile; fileRef = B9D98FB0B3CBE6DCE991E2CB /* loop.wav */; };
+		A3E357A990C8BF5337D361A8 /* Jelbreking.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2724E7B6F43385752FD01A35 /* Jelbreking.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -701,6 +702,7 @@
 		C075B0CB2B8F2BCE009A26BB /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F6A0FF25113B2D1CE306F4F0 /* intro.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = intro.wav; sourceTree = "<group>"; };
 		B9D98FB0B3CBE6DCE991E2CB /* loop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = loop.wav; sourceTree = "<group>"; };
+		2724E7B6F43385752FD01A35 /* Jelbreking.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Jelbreking.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -1412,6 +1414,7 @@
 		8CB94F012B59E16D0098BAFD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2724E7B6F43385752FD01A35 /* Jelbreking.wav */,
 				F6A0FF25113B2D1CE306F4F0 /* intro.wav */,
 				B9D98FB0B3CBE6DCE991E2CB /* loop.wav */,
 				8C05C59E2B759F8A0097A931 /* bootstrap_1800.tar.zst */,
@@ -1982,6 +1985,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3E357A990C8BF5337D361A8 /* Jelbreking.wav in Resources */,
 				9F8854D7CB3FC8A65951EF78 /* intro.wav in Resources */,
 				82D2C404224C6A2C1CD1D773 /* loop.wav in Resources */,
 				8C5FF1CB301BAAF100BCA01F /* launchctl_1_1.2.0_iphoneos-arm64.deb in Resources */,
