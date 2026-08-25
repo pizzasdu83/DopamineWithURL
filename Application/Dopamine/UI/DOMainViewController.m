@@ -101,8 +101,8 @@
 
     self.introPlayer.delegate = self;
 
-    self.introPlayer.volume = 1.0;
-    self.musicPlayer.volume = 1.0;
+    self.introPlayer.volume = 0.25;
+    self.musicPlayer.volume = 0.25;
 
     self.introPlayer.numberOfLoops = 0;
     self.musicPlayer.numberOfLoops = -1;
