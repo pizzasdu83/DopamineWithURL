@@ -18,4 +18,4 @@ This app even has a special icon and special theme.
 
 
 
-Current building state: [![Dopamine: build and upload](https://github.com/pizzasdu83/DopamineWithURL/actions/workflows/main.yml/badge.svg?branch=3.x)](https://github.com/pizzasdu83/DopamineWithURL/actions/workflows/main.yml)
+Current building state: [![Dopamine: build and upload](https://github.com/pizzasdu83/DopamineWithURL/actions/workflows/main.yml/badge.svg?branch=3.x&event=workflow_run)](https://github.com/pizzasdu83/DopamineWithURL/actions/workflows/main.yml)
