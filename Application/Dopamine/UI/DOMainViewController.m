@@ -9,6 +9,7 @@
 #import "DOMainViewController.h"
 #import "DOUIManager.h"
 #import "DOEnvironmentManager.h"
+#import "DOThemeManager.h"
 #import "DOJailbreaker.h"
 #import "DOGlobalAppearance.h"
 #import "DOActionMenuButton.h"
@@ -37,14 +38,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupStack];
-    [self startBackgroundMusic];
 }
 
 - (void)startBackgroundMusic
 {
     [self.introPlayer stop];
     [self.musicPlayer stop];
-    
+
+    if (![[[DOThemeManager sharedInstance] enabledTheme].key isEqualToString:@"default"]) {
+        return;
+    }
+
     AVAudioSession *session = [AVAudioSession sharedInstance];
 
     NSError *error = nil;
@@ -312,6 +316,7 @@
 {
     [super viewWillAppear:animated];
     [self.jailbreakBtn.button setTitle:[self jailbreakButtonTitle] forState:UIControlStateNormal];
+    [self startBackgroundMusic];
 }
 
 - (void)startJailbreak
