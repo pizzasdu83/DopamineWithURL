@@ -23,6 +23,11 @@
     window.rootViewController = [[DONavigationController alloc] init];
     [window makeKeyAndVisible];
     self.window = window;
+
+    if (connectionOptions.URLContexts.count > 0) {
+        // App was launched cold via a dopamine:// URL — openURLContexts: is not called in this case, so handle it here.
+        [self scene:scene openURLContexts:connectionOptions.URLContexts];
+    }
 }
 
 - (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
