@@ -30,6 +30,7 @@
 
 @property(nonatomic, strong) AVAudioPlayer *introPlayer;
 @property(nonatomic, strong) AVAudioPlayer *musicPlayer;
+@property(nonatomic, strong) AVAudioPlayer *JelbrekingPlayer;
 @property(nonatomic, strong) NSString *lastAppliedThemeKey;
 
 @end
@@ -76,6 +77,9 @@
 
     NSURL *musicURL = [[NSBundle mainBundle] URLForResource:@"loop"
                                               withExtension:@"wav"];
+                                              
+    NSURL *JelbrekingURL = [[NSBundle mainBundle] URLForResource:@"Jelbreking"
+                                              withExtension:@"wav"];
 
     if (!introURL || !musicURL) {
         NSLog(@"Audio files missing");
@@ -100,38 +104,28 @@
         return;
     }
 
+    self.JelbrekingPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:JelbrekingURL
+                                                               error:&error];
+
+    if (!self.JelbrekingPlayer) {
+        NSLog(@"Loop player error: %@", error);
+        return;
+    }
+
+
     self.introPlayer.delegate = self;
 
     self.introPlayer.volume = 0.25;
     self.musicPlayer.volume = 0.25;
+    self.JelbrekingPlayer.volume = 0.25;
 
     self.introPlayer.numberOfLoops = 0;
     self.musicPlayer.numberOfLoops = -1;
+    self.JelbrekingPlayer.numberOfLoops = -1;
 
     BOOL introPrepared = [self.introPlayer prepareToPlay];
     BOOL loopPrepared = [self.musicPlayer prepareToPlay];
-
-#if DEBUG
-    NSString *debug = [NSString stringWithFormat:
-        @"Intro:\nURL = %@\nDuration = %.2f\nPrepared = %@\n\nLoop:\nURL = %@\nDuration = %.2f\nPrepared = %@",
-        introURL.path,
-        self.introPlayer.duration,
-        introPrepared ? @"YES" : @"NO",
-        musicURL.path,
-        self.musicPlayer.duration,
-        loopPrepared ? @"YES" : @"NO"
-    ];
-
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Audio Debug"
-                                                                   message:debug
-                                                            preferredStyle:UIAlertControllerStyleAlert];
-
-    [alert addAction:[UIAlertAction actionWithTitle:@"OK"
-                                               style:UIAlertActionStyleDefault
-                                             handler:nil]];
-
-    [self presentViewController:alert animated:YES completion:nil];
-#endif
+    BOOL JelbrekingPrepared = [self.musicPlayer prepareToPlay];
 
     NSLog(@"Intro duration: %f", self.introPlayer.duration);
     NSLog(@"Loop duration: %f", self.musicPlayer.duration);
@@ -265,7 +259,7 @@
 
         [self.introPlayer stop];
         [self.musicPlayer stop];
-        
+        BOOL playing = [self.JelbrekingPlayer play];
         [self startJailbreak];
         
     }]];
