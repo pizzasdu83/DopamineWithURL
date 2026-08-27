@@ -12,9 +12,9 @@ Official website / download: https://ellekit.space/dopamine/
 
 This fork was made to add a function to open Dopamine with Safari. You can do it after downloading the file from [releases](https://github.com/pizzasdu83/DopamineWithURL/releases) and typing [dopamine://](dopamine://) in Safari. This can be usefull for redirections or webclip (like in iCustom)
 
-This app even has a special icon and special theme.
+This app even has a special icon, special theme and music for the new theme.
 
-
+dopamine://jailbreak lets you instantly jailbreak your device
 
 
 
