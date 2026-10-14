@@ -1,4 +1,4 @@
-name: "Dopamine: build and upload"
+name: "Homebrewing the dopamine the prisoners"
 
 on:
   push:
