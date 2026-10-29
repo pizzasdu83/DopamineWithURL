@@ -256,6 +256,8 @@
 		9F8854D7CB3FC8A65951EF78 /* intro.wav in Resources */ = {isa = PBXBuildFile; fileRef = F6A0FF25113B2D1CE306F4F0 /* intro.wav */; };
 		82D2C404224C6A2C1CD1D773 /* loop.wav in Resources */ = {isa = PBXBuildFile; fileRef = B9D98FB0B3CBE6DCE991E2CB /* loop.wav */; };
 		A3E357A990C8BF5337D361A8 /* Jelbreking.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2724E7B6F43385752FD01A35 /* Jelbreking.wav */; };
+		9A1000000000000000000002 /* DopamineIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1000000000000000000001 /* DopamineIntents.swift */; };
+		9A200000000000000000000C /* DopamineControls.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9A2000000000000000000004 /* DopamineControls.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -329,6 +331,13 @@
 			remoteGlobalIDString = 8CF3E8362F72D45800931CA8;
 			remoteInfo = DarkSword;
 		};
+		9A200000000000000000000E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8C71980D2ABF0E82003C6658 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A2000000000000000000003;
+			remoteInfo = DopamineControls;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -384,6 +393,17 @@
 				8C05B0152B631738001A7CF3 /* badRecovery.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A200000000000000000000B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				9A200000000000000000000C /* DopamineControls.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -703,6 +723,8 @@
 		F6A0FF25113B2D1CE306F4F0 /* intro.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = intro.wav; sourceTree = "<group>"; };
 		B9D98FB0B3CBE6DCE991E2CB /* loop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = loop.wav; sourceTree = "<group>"; };
 		2724E7B6F43385752FD01A35 /* Jelbreking.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Jelbreking.wav; sourceTree = "<group>"; };
+		9A1000000000000000000001 /* DopamineIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DopamineIntents.swift; sourceTree = "<group>"; };
+		9A2000000000000000000004 /* DopamineControls.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DopamineControls.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -740,10 +762,18 @@
 			);
 			target = 8C3B2DED301BC05200C979A6 /* ClearSword */;
 		};
+		9A2000000000000000000002 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 9A2000000000000000000003 /* DopamineControls */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		8C3B2DEF301BC05200C979A6 /* ClearSword */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (8C3B2DF8301BC05200C979A6 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 2F11A31F301BFDAF00C1C9F0 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = ClearSword; sourceTree = "<group>"; };
+		9A2000000000000000000001 /* DopamineControls */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (9A2000000000000000000002 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = DopamineControls; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -852,6 +882,13 @@
 				8CF3E8502F72D45800931CA8 /* IOSurface.framework in Frameworks */,
 				8CF3E8512F72D45800931CA8 /* IOKit.framework in Frameworks */,
 				8CF3E8522F72D45800931CA8 /* libjailbreak.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A2000000000000000000009 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1327,6 +1364,7 @@
 		8C71980C2ABF0E82003C6658 = {
 			isa = PBXGroup;
 			children = (
+				9A2000000000000000000001 /* DopamineControls */,
 				8C7198172ABF0E82003C6658 /* Dopamine */,
 				8C7198162ABF0E82003C6658 /* Products */,
 				8C029F642B4E2E7D0071DE58 /* Frameworks */,
@@ -1346,6 +1384,7 @@
 				8C3B2DEE301BC05200C979A6 /* ClearSword.framework */,
 				2F11A31D301BFDAE00C1C9F0 /* momentarius.framework */,
 				3165CFCF3020A516002737DA /* Titan.framework */,
+				9A2000000000000000000004 /* DopamineControls.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1392,6 +1431,7 @@
 				8C7198192ABF0E82003C6658 /* DOAppDelegate.m */,
 				8C71981B2ABF0E82003C6658 /* DOSceneDelegate.h */,
 				8C71981C2ABF0E82003C6658 /* DOSceneDelegate.m */,
+				9A1000000000000000000001 /* DopamineIntents.swift */,
 			);
 			path = "App Delegates";
 			sourceTree = "<group>";
@@ -1768,6 +1808,7 @@
 				8C7198132ABF0E82003C6658 /* Resources */,
 				8C029F5C2B4E21F50071DE58 /* Embed Libraries */,
 				8CDD07AE2B4F619000A32B61 /* Embed Frameworks */,
+				9A200000000000000000000B /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -1782,6 +1823,7 @@
 				8C3B2E00301BC18300C979A6 /* PBXTargetDependency */,
 				2F11A331301C00FF00C1C9F0 /* PBXTargetDependency */,
 				3165CFD43020A516002737DA /* PBXTargetDependency */,
+				9A200000000000000000000D /* PBXTargetDependency */,
 			);
 			name = Dopamine;
 			packageProductDependencies = (
@@ -1828,6 +1870,28 @@
 			productName = multicast_bytecopy;
 			productReference = 8CF3E8582F72D45800931CA8 /* DarkSword.framework */;
 			productType = "com.apple.product-type.framework";
+		};
+		9A2000000000000000000003 /* DopamineControls */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A2000000000000000000005 /* Build configuration list for PBXNativeTarget "DopamineControls" */;
+			buildPhases = (
+				9A2000000000000000000008 /* Sources */,
+				9A2000000000000000000009 /* Frameworks */,
+				9A200000000000000000000A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				9A2000000000000000000001 /* DopamineControls */,
+			);
+			name = DopamineControls;
+			packageProductDependencies = (
+			);
+			productName = DopamineControls;
+			productReference = 9A2000000000000000000004 /* DopamineControls.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -1919,6 +1983,7 @@
 				8C3B2DED301BC05200C979A6 /* ClearSword */,
 				2F11A313301BFDAE00C1C9F0 /* momentarius */,
 				3165CFCE3020A516002737DA /* Titan */,
+				9A2000000000000000000003 /* DopamineControls */,
 			);
 		};
 /* End PBXProject section */
@@ -2024,6 +2089,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		8CF3E8532F72D45800931CA8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A200000000000000000000A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2336,6 +2408,7 @@
 				04C2469C2B73220400E17924 /* DOUpdateViewController.m in Sources */,
 				042479B62B66916B0082581B /* DOActionMenuButton.m in Sources */,
 				8C71981D2ABF0E82003C6658 /* DOSceneDelegate.m in Sources */,
+				9A1000000000000000000002 /* DopamineIntents.swift in Sources */,
 				042479A32B66916B0082581B /* DOSettingsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2353,6 +2426,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CF3E8662F72D57800931CA8 /* DarkSword.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A2000000000000000000008 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2408,6 +2488,11 @@
 			isa = PBXTargetDependency;
 			target = 8CF3E8362F72D45800931CA8 /* DarkSword */;
 			targetProxy = 8CF3E8692F72DD9400931CA8 /* PBXContainerItemProxy */;
+		};
+		9A200000000000000000000D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9A2000000000000000000003 /* DopamineControls */;
+			targetProxy = 9A200000000000000000000E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -3107,7 +3192,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3121,6 +3206,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.opa334.Dopamine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -3145,7 +3231,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3159,6 +3245,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.opa334.Dopamine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -3306,6 +3393,58 @@
 			};
 			name = Release;
 		};
+		9A2000000000000000000006 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DopamineControls/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Dopamine Controls";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.opa334.Dopamine.Controls;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		9A2000000000000000000007 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DopamineControls/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Dopamine Controls";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.opa334.Dopamine.Controls;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -3404,6 +3543,15 @@
 			buildConfigurations = (
 				8CF3E8562F72D45800931CA8 /* Debug */,
 				8CF3E8572F72D45800931CA8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9A2000000000000000000005 /* Build configuration list for PBXNativeTarget "DopamineControls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A2000000000000000000006 /* Debug */,
+				9A2000000000000000000007 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
