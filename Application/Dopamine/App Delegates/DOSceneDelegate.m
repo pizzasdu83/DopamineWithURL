@@ -42,8 +42,12 @@
         if ([[url.scheme lowercaseString] isEqualToString:@"dopamine"]) {
             NSLog(@"Dopamine URL received: %@", url);
 
-            if ([[url.host lowercaseString] isEqualToString:@"jailbreak"]) {
+            NSString *host = [url.host lowercaseString];
+            if ([host isEqualToString:@"jailbreak"]) {
                 [self handleJailbreakURLRequest];
+            }
+            else if ([host isEqualToString:@"respring"] || [host isEqualToString:@"reboot-userspace"]) {
+                [self handleActionURLRequest:host];
             }
         }
     }
@@ -87,6 +91,50 @@
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), triggerJailbreak);
     } else {
         triggerJailbreak();
+    }
+}
+
+- (void)handleActionURLRequest:(NSString *)host
+{
+    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    if (![navigationController isKindOfClass:[UINavigationController class]]) {
+        return;
+    }
+
+    DOMainViewController *mainViewController = nil;
+    for (UIViewController *viewController in navigationController.viewControllers) {
+        if ([viewController isKindOfClass:[DOMainViewController class]]) {
+            mainViewController = (DOMainViewController *)viewController;
+            break;
+        }
+    }
+    if (!mainViewController) {
+        return;
+    }
+
+    if (![[DOEnvironmentManager sharedManager] isJailbroken]) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:DOLocalizedString(@"URLScheme_Not_Jailbroken_Title")
+                                                                         message:DOLocalizedString(@"URLScheme_Not_Jailbroken_Message")
+                                                                  preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [mainViewController presentViewController:alert animated:YES completion:nil];
+        return;
+    }
+
+    BOOL isRespring = [host isEqualToString:@"respring"];
+    void (^runAction)(void) = ^{
+        if (isRespring) {
+            [mainViewController respringFromURLScheme];
+        } else {
+            [mainViewController rebootUserspaceFromURLScheme];
+        }
+    };
+
+    if (navigationController.topViewController != mainViewController) {
+        [navigationController popToViewController:mainViewController animated:YES];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), runAction);
+    } else {
+        runAction();
     }
 }
 
