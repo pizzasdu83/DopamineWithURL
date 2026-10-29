@@ -350,6 +350,26 @@
     [self.jailbreakBtn.button sendActionsForControlEvents:UIControlEventTouchUpInside];
 }
 
+- (void)respringFromURLScheme
+{
+    if (![[DOEnvironmentManager sharedManager] isJailbroken]) {
+        return;
+    }
+    [self fadeToBlack:^{
+        [[DOEnvironmentManager sharedManager] respring];
+    }];
+}
+
+- (void)rebootUserspaceFromURLScheme
+{
+    if (![[DOEnvironmentManager sharedManager] isJailbroken]) {
+        return;
+    }
+    [self fadeToBlack:^{
+        [[DOEnvironmentManager sharedManager] rebootUserspace];
+    }];
+}
+
 
 - (void)startJailbreak
 {

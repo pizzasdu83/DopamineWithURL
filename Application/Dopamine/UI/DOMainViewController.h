@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DOMainViewController : UIViewController <DOActionMenuDelegate>
 
 - (void)startJailbreakFromURLScheme;
+- (void)respringFromURLScheme;
+- (void)rebootUserspaceFromURLScheme;
 - (void)stopAllAudio;
 
 @end
