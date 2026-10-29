@@ -12,6 +12,8 @@
 // URL Scheme
 "URLScheme_Already_Jailbroken_Title" = "Already Jailbroken";
 "URLScheme_Already_Jailbroken_Message" = "This device is already jailbroken. :/";
+"URLScheme_Not_Jailbroken_Title" = "Not Jailbroken";
+"URLScheme_Not_Jailbroken_Message" = "This device is not jailbroken yet.";
 
 // Action Menu
 "Menu_Settings_Title" = "Settings";
