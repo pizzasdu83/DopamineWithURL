@@ -6,6 +6,7 @@ Dopamine.ipa: build/Build/Products/Debug-iphoneos/Dopamine.app
 	@echo Ad-Hoc signing Dopamine
 	xattr -rc build/Build/Products/Debug-iphoneos/Dopamine.app
 	ldid -SDopamine/Dopamine.entitlements build/Build/Products/Debug-iphoneos/Dopamine.app/Dopamine
+	@if [ -d build/Build/Products/Debug-iphoneos/Dopamine.app/PlugIns ]; then for appex in build/Build/Products/Debug-iphoneos/Dopamine.app/PlugIns/*.appex; do ldid -s "$$appex"; done; fi
 	ldid -s build/Build/Products/Debug-iphoneos/Dopamine.app
 	rm -rf Payload Dopamine.ipa
 	mkdir Payload
