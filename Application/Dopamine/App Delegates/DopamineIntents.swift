@@ -14,11 +14,13 @@ import UIKit
 @MainActor
 enum DopamineIntentRouter {
     static func open(_ host: String) {
+        #if !DOPAMINE_CONTROLS_EXTENSION
         guard let url = URL(string: "dopamine://\(host)") else { return }
         // Give the scene a moment to become active (cold launch via Shortcuts).
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
             UIApplication.shared.open(url)
         }
+        #endif
     }
 }
 
@@ -61,6 +63,7 @@ struct DopamineRebootUserspaceIntent: AppIntent {
     }
 }
 
+#if !DOPAMINE_CONTROLS_EXTENSION
 @available(iOS 16.4, *)
 struct DopamineShortcuts: AppShortcutsProvider {
     static var appShortcuts: [AppShortcut] {
@@ -78,3 +81,4 @@ struct DopamineShortcuts: AppShortcutsProvider {
                     systemImageName: "arrow.clockwise.circle")
     }
 }
+#endif
