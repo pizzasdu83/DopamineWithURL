@@ -2,8 +2,9 @@
 //  DopamineControls.swift
 //  DopamineControls
 //
-//  Control Center controls (iOS 18+). Each one opens the Dopamine app through
-//  its URL scheme; DOSceneDelegate then performs the action.
+//  Control Center controls (iOS 18+). They run the same App Intents as the Shortcuts
+//  actions (DopamineIntents.swift is compiled into this target too); the intents
+//  have openAppWhenRun = true, so the system runs them inside the app.
 //
 
 import WidgetKit
@@ -15,7 +16,7 @@ struct DopamineJailbreakControl: ControlWidget {
 
     var body: some ControlWidgetConfiguration {
         StaticControlConfiguration(kind: Self.kind) {
-            ControlWidgetButton(action: OpenURLIntent(URL(string: "dopamine://jailbreak")!)) {
+            ControlWidgetButton(action: DopamineJailbreakIntent()) {
                 Label("Jailbreak", systemImage: "bolt.fill")
             }
         }
@@ -29,7 +30,7 @@ struct DopamineRespringControl: ControlWidget {
 
     var body: some ControlWidgetConfiguration {
         StaticControlConfiguration(kind: Self.kind) {
-            ControlWidgetButton(action: OpenURLIntent(URL(string: "dopamine://respring")!)) {
+            ControlWidgetButton(action: DopamineRespringIntent()) {
                 Label("Respring", systemImage: "arrow.clockwise")
             }
         }
@@ -43,7 +44,7 @@ struct DopamineRebootUserspaceControl: ControlWidget {
 
     var body: some ControlWidgetConfiguration {
         StaticControlConfiguration(kind: Self.kind) {
-            ControlWidgetButton(action: OpenURLIntent(URL(string: "dopamine://reboot-userspace")!)) {
+            ControlWidgetButton(action: DopamineRebootUserspaceIntent()) {
                 Label("Reboot Userspace", systemImage: "arrow.clockwise.circle")
             }
         }
