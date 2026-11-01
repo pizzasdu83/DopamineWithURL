@@ -258,6 +258,7 @@
 		A3E357A990C8BF5337D361A8 /* Jelbreking.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2724E7B6F43385752FD01A35 /* Jelbreking.wav */; };
 		9A1000000000000000000002 /* DopamineIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1000000000000000000001 /* DopamineIntents.swift */; };
 		9A200000000000000000000C /* DopamineControls.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9A2000000000000000000004 /* DopamineControls.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9A200000000000000000000F /* DopamineIntents.swift in Sources (Controls) */ = {isa = PBXBuildFile; fileRef = 9A1000000000000000000001 /* DopamineIntents.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2433,6 +2434,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A200000000000000000000F /* DopamineIntents.swift in Sources (Controls) */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3414,6 +3416,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DOPAMINE_CONTROLS_EXTENSION;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -3440,6 +3443,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DOPAMINE_CONTROLS_EXTENSION;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
