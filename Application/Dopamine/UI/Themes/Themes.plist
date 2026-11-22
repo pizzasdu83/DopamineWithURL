@@ -18,8 +18,10 @@
 		<key>titleShadow</key>
 		<false/>
 	</dict>
-    <dict>
+	<dict>
 		<key>key</key>
+		<string>AppIcon_GEEN</string>
+		<key>icon</key>
 		<string>AppIcon_GEEN</string>
 		<key>name</key>
 		<string>Dopamine</string>

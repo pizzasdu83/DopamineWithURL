@@ -17,11 +17,11 @@ struct DopamineJailbreakControl: ControlWidget {
     var body: some ControlWidgetConfiguration {
         StaticControlConfiguration(kind: Self.kind) {
             ControlWidgetButton(action: DopamineJailbreakIntent()) {
-                Label("Jailbreak", systemImage: "bolt.fill")
+                Label("Jailbreak", systemImage: "door.left.hand.open")
             }
         }
         .displayName("Jailbreak")
-        .description("Starts the jailbreak in Dopamine.")
+        .description("Gift some dopamine to your phone.")
     }
 }
 
@@ -31,7 +31,7 @@ struct DopamineRespringControl: ControlWidget {
     var body: some ControlWidgetConfiguration {
         StaticControlConfiguration(kind: Self.kind) {
             ControlWidgetButton(action: DopamineRespringIntent()) {
-                Label("Respring", systemImage: "arrow.clockwise")
+                Label("Respring", systemImage: "sun.haze")
             }
         }
         .displayName("Respring")
@@ -45,11 +45,11 @@ struct DopamineRebootUserspaceControl: ControlWidget {
     var body: some ControlWidgetConfiguration {
         StaticControlConfiguration(kind: Self.kind) {
             ControlWidgetButton(action: DopamineRebootUserspaceIntent()) {
-                Label("Reboot Userspace", systemImage: "arrow.clockwise.circle")
+                Label("Reboot Userspace", systemImage: "wake")
             }
         }
         .displayName("Reboot Userspace")
-        .description("Reboots userspace.")
+        .description("Reboots your phone, but without removing the jailbreak.")
     }
 }
 

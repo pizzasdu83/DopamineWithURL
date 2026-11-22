@@ -255,6 +255,7 @@
 		8CF3E8672F72DD9400931CA8 /* DarkSword.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF3E8582F72D45800931CA8 /* DarkSword.framework */; };
 		8CF3E8682F72DD9400931CA8 /* DarkSword.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF3E8582F72D45800931CA8 /* DarkSword.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		92B2214E30B20A610079BF8B /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 92B2214D30B20A610079BF8B /* AppIcon.icon */; };
+		92D53C5E30B34B6A00D688B4 /* AppIcon_GEEN.icon in Resources */ = {isa = PBXBuildFile; fileRef = 92D53C5D30B34B6A00D688B4 /* AppIcon_GEEN.icon */; };
 		9A1000000000000000000002 /* DopamineIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1000000000000000000001 /* DopamineIntents.swift */; };
 		9A200000000000000000000C /* DopamineControls.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9A2000000000000000000004 /* DopamineControls.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9A200000000000000000000F /* DopamineIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1000000000000000000001 /* DopamineIntents.swift */; };
@@ -723,6 +724,7 @@
 		8CF3E85B2F72D50200931CA8 /* DarkSword.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DarkSword.m; sourceTree = "<group>"; };
 		8CF3E85E2F72D51200931CA8 /* DarkSword.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DarkSword.h; sourceTree = "<group>"; };
 		92B2214D30B20A610079BF8B /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
+		92D53C5D30B34B6A00D688B4 /* AppIcon_GEEN.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon_GEEN.icon; sourceTree = "<group>"; };
 		9A1000000000000000000001 /* DopamineIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DopamineIntents.swift; sourceTree = "<group>"; };
 		9A2000000000000000000004 /* DopamineControls.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DopamineControls.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9D98FB0B3CBE6DCE991E2CB /* loop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = loop.wav; sourceTree = "<group>"; };
@@ -1408,6 +1410,7 @@
 				8C71982A2ABF0E84003C6658 /* main.m */,
 				04DD0B5B2B7D19E60055DE4F /* Localizable.strings */,
 				92B2214D30B20A610079BF8B /* AppIcon.icon */,
+				92D53C5D30B34B6A00D688B4 /* AppIcon_GEEN.icon */,
 			);
 			path = Dopamine;
 			sourceTree = "<group>";
@@ -2074,6 +2077,7 @@
 				8C56D4CA2B7C102B001C03D3 /* LICENSE_Procursus.md in Resources */,
 				8CCD2FC42B77AAA000F9C5DA /* basebin-link.deb in Resources */,
 				8C05C5A02B75A17A0097A931 /* bootstrap_1900.tar.zst in Resources */,
+				92D53C5E30B34B6A00D688B4 /* AppIcon_GEEN.icon in Resources */,
 				8C05C59F2B75A1770097A931 /* bootstrap_1800.tar.zst in Resources */,
 				042479A42B66916B0082581B /* Credits.plist in Resources */,
 				8C2875212BD850B4008B24DA /* LICENSE_libgrabkernel2.md in Resources */,
