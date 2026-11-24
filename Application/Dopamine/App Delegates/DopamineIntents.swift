@@ -53,7 +53,7 @@ struct DopamineRespringIntent: AppIntent {
 @available(iOS 16.0, *)
 struct DopamineRebootUserspaceIntent: AppIntent {
     static var title: LocalizedStringResource = "Reboot Userspace"
-    static var description = IntentDescription("Reboots userspace (requires an active jailbreak).")
+    static var description = IntentDescription("Reboots the device, but keeps the jailbreak (requires an active jailbreak).")
     static var openAppWhenRun: Bool = true
 
     @MainActor
@@ -70,15 +70,15 @@ struct DopamineShortcuts: AppShortcutsProvider {
         AppShortcut(intent: DopamineJailbreakIntent(),
                     phrases: ["Jailbreak with \(.applicationName)"],
                     shortTitle: "Jailbreak",
-                    systemImageName: "bolt.fill")
+                    systemImageName: "door.left.hand.open")
         AppShortcut(intent: DopamineRespringIntent(),
                     phrases: ["Respring with \(.applicationName)"],
                     shortTitle: "Respring",
-                    systemImageName: "arrow.clockwise")
+                    systemImageName: "sun.haze")
         AppShortcut(intent: DopamineRebootUserspaceIntent(),
                     phrases: ["Reboot userspace with \(.applicationName)"],
                     shortTitle: "Reboot Userspace",
-                    systemImageName: "arrow.clockwise.circle")
+                    systemImageName: "wake")
     }
 }
 #endif

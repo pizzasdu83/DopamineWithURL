@@ -104,10 +104,10 @@
 "Credits_Button_Discord" = "Discord";
 "Credits_Button_License" = "Licenses";
 "Credits_Button_Source_Code" = "Code source";
-"Credits_Button_New_Source_Code" = "Nouveau code source :3";
+"Credits_Button_New_Source_Code" = "Nouveau code source :D";
 
 // Logs
-"Initializing Environment" = "Initialisation de l'environnement\n(même moi j'y comprend rien...)";
+"Initializing Environment" = "Initialisation de l'environnement";
 /*Initializing Protection*/
 "Loading BaseBin TrustCache" = "Chargement des signatures";
 "Applying Bind Mount" = "Montage du disque virtuel";

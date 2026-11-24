@@ -255,7 +255,10 @@
 		8CF3E8672F72DD9400931CA8 /* DarkSword.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF3E8582F72D45800931CA8 /* DarkSword.framework */; };
 		8CF3E8682F72DD9400931CA8 /* DarkSword.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF3E8582F72D45800931CA8 /* DarkSword.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		92B2214E30B20A610079BF8B /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 92B2214D30B20A610079BF8B /* AppIcon.icon */; };
+		92BE381A30B62AD0009B3466 /* AppIcon_Red.icon in Resources */ = {isa = PBXBuildFile; fileRef = 92BE381730B62AD0009B3466 /* AppIcon_Red.icon */; };
+		92BE381E30B62B5C009B3466 /* AppIcon_Blue.icon in Resources */ = {isa = PBXBuildFile; fileRef = 92BE381D30B62B5C009B3466 /* AppIcon_Blue.icon */; };
 		92D53C5E30B34B6A00D688B4 /* AppIcon_GEEN.icon in Resources */ = {isa = PBXBuildFile; fileRef = 92D53C5D30B34B6A00D688B4 /* AppIcon_GEEN.icon */; };
+		92E3288B30B62BE1003F9158 /* AppIcon_Purple.icon in Resources */ = {isa = PBXBuildFile; fileRef = 92E3288A30B62BE1003F9158 /* AppIcon_Purple.icon */; };
 		9A1000000000000000000002 /* DopamineIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1000000000000000000001 /* DopamineIntents.swift */; };
 		9A200000000000000000000C /* DopamineControls.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9A2000000000000000000004 /* DopamineControls.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9A200000000000000000000F /* DopamineIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1000000000000000000001 /* DopamineIntents.swift */; };
@@ -724,7 +727,10 @@
 		8CF3E85B2F72D50200931CA8 /* DarkSword.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DarkSword.m; sourceTree = "<group>"; };
 		8CF3E85E2F72D51200931CA8 /* DarkSword.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DarkSword.h; sourceTree = "<group>"; };
 		92B2214D30B20A610079BF8B /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
+		92BE381730B62AD0009B3466 /* AppIcon_Red.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon_Red.icon; sourceTree = "<group>"; };
+		92BE381D30B62B5C009B3466 /* AppIcon_Blue.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon_Blue.icon; sourceTree = "<group>"; };
 		92D53C5D30B34B6A00D688B4 /* AppIcon_GEEN.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon_GEEN.icon; sourceTree = "<group>"; };
+		92E3288A30B62BE1003F9158 /* AppIcon_Purple.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon_Purple.icon; sourceTree = "<group>"; };
 		9A1000000000000000000001 /* DopamineIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DopamineIntents.swift; sourceTree = "<group>"; };
 		9A2000000000000000000004 /* DopamineControls.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DopamineControls.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9D98FB0B3CBE6DCE991E2CB /* loop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = loop.wav; sourceTree = "<group>"; };
@@ -1411,6 +1417,9 @@
 				04DD0B5B2B7D19E60055DE4F /* Localizable.strings */,
 				92B2214D30B20A610079BF8B /* AppIcon.icon */,
 				92D53C5D30B34B6A00D688B4 /* AppIcon_GEEN.icon */,
+				92BE381D30B62B5C009B3466 /* AppIcon_Blue.icon */,
+				92E3288A30B62BE1003F9158 /* AppIcon_Purple.icon */,
+				92BE381730B62AD0009B3466 /* AppIcon_Red.icon */,
 			);
 			path = Dopamine;
 			sourceTree = "<group>";
@@ -2064,10 +2073,12 @@
 				8C609C9F2C19B6FA0023DD12 /* libkrw-dopamine.deb in Resources */,
 				04DD0B372B7BA6180055DE4F /* LICENSE.md in Resources */,
 				04DD0B3A2B7BF3E80055DE4F /* LICENSE_libc.md in Resources */,
+				92BE381E30B62B5C009B3466 /* AppIcon_Blue.icon in Resources */,
 				8C56D4CD2B7C118B001C03D3 /* LICENSE_kfd.md in Resources */,
 				8C56D4BF2B7C0DF2001C03D3 /* LICENSE_ChOma.md in Resources */,
 				8C56D4C22B7C0DF2001C03D3 /* LICENSE_Fugu15.md in Resources */,
 				8C56D4C02B7C0DF2001C03D3 /* LICENSE_Fugu15_Rootful.md in Resources */,
+				92BE381A30B62AD0009B3466 /* AppIcon_Red.icon in Resources */,
 				8C56D4C92B7C102B001C03D3 /* LICENSE_Sileo.md in Resources */,
 				8C56D4C12B7C0DF2001C03D3 /* LICENSE_dimentio.md in Resources */,
 				8C56D4C32B7C0DF2001C03D3 /* LICENSE_ElleKit.md in Resources */,
@@ -2090,6 +2101,7 @@
 				92B2214E30B20A610079BF8B /* AppIcon.icon in Resources */,
 				04DD0B592B7D19E60055DE4F /* Localizable.strings in Resources */,
 				04C246B32B74B65900E17924 /* PkgManagers.plist in Resources */,
+				92E3288B30B62BE1003F9158 /* AppIcon_Purple.icon in Resources */,
 				04DD0B402B7CBD3D0055DE4F /* Themes.plist in Resources */,
 				8CB94F042B59E17A0098BAFD /* basebin.tc in Resources */,
 				8C7198282ABF0E84003C6658 /* LaunchScreen.storyboard in Resources */,
