@@ -257,6 +257,7 @@
 		92B2214E30B20A610079BF8B /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 92B2214D30B20A610079BF8B /* AppIcon.icon */; };
 		92BE381A30B62AD0009B3466 /* AppIcon_Red.icon in Resources */ = {isa = PBXBuildFile; fileRef = 92BE381730B62AD0009B3466 /* AppIcon_Red.icon */; };
 		92BE381E30B62B5C009B3466 /* AppIcon_Blue.icon in Resources */ = {isa = PBXBuildFile; fileRef = 92BE381D30B62B5C009B3466 /* AppIcon_Blue.icon */; };
+		92C4204330B78E9500BEC009 /* AppIcon_ElleKit.icon in Resources */ = {isa = PBXBuildFile; fileRef = 92C4204230B78E9500BEC009 /* AppIcon_ElleKit.icon */; };
 		92D53C5E30B34B6A00D688B4 /* AppIcon_GEEN.icon in Resources */ = {isa = PBXBuildFile; fileRef = 92D53C5D30B34B6A00D688B4 /* AppIcon_GEEN.icon */; };
 		92E3288B30B62BE1003F9158 /* AppIcon_Purple.icon in Resources */ = {isa = PBXBuildFile; fileRef = 92E3288A30B62BE1003F9158 /* AppIcon_Purple.icon */; };
 		9A1000000000000000000002 /* DopamineIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1000000000000000000001 /* DopamineIntents.swift */; };
@@ -729,6 +730,7 @@
 		92B2214D30B20A610079BF8B /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		92BE381730B62AD0009B3466 /* AppIcon_Red.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon_Red.icon; sourceTree = "<group>"; };
 		92BE381D30B62B5C009B3466 /* AppIcon_Blue.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon_Blue.icon; sourceTree = "<group>"; };
+		92C4204230B78E9500BEC009 /* AppIcon_ElleKit.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon_ElleKit.icon; sourceTree = "<group>"; };
 		92D53C5D30B34B6A00D688B4 /* AppIcon_GEEN.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon_GEEN.icon; sourceTree = "<group>"; };
 		92E3288A30B62BE1003F9158 /* AppIcon_Purple.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon_Purple.icon; sourceTree = "<group>"; };
 		9A1000000000000000000001 /* DopamineIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DopamineIntents.swift; sourceTree = "<group>"; };
@@ -1416,6 +1418,7 @@
 				8C71982A2ABF0E84003C6658 /* main.m */,
 				04DD0B5B2B7D19E60055DE4F /* Localizable.strings */,
 				92B2214D30B20A610079BF8B /* AppIcon.icon */,
+				92C4204230B78E9500BEC009 /* AppIcon_ElleKit.icon */,
 				92D53C5D30B34B6A00D688B4 /* AppIcon_GEEN.icon */,
 				92BE381D30B62B5C009B3466 /* AppIcon_Blue.icon */,
 				92E3288A30B62BE1003F9158 /* AppIcon_Purple.icon */,
@@ -2099,6 +2102,7 @@
 				8C5FA9712BDD81EF008C246F /* LICENSE_weightBufs.md in Resources */,
 				8CB94F052B59E17A0098BAFD /* basebin.tar in Resources */,
 				92B2214E30B20A610079BF8B /* AppIcon.icon in Resources */,
+				92C4204330B78E9500BEC009 /* AppIcon_ElleKit.icon in Resources */,
 				04DD0B592B7D19E60055DE4F /* Localizable.strings in Resources */,
 				04C246B32B74B65900E17924 /* PkgManagers.plist in Resources */,
 				92E3288B30B62BE1003F9158 /* AppIcon_Purple.icon in Resources */,
