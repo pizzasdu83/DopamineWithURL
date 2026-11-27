@@ -75,12 +75,12 @@
 
 // Le style RÉEL du système. self.traitCollection est inutilisable ici car
 // ce contrôleur force .dark (setOverrideUserInterfaceStyle) : on interroge donc
-// la fenêtre (non overridée), ou l'écran tant que la vue n'est pas dans une fenêtre.
+// l'écran, que aucun override de vue ne peut fausser.
 - (UIUserInterfaceStyle)systemInterfaceStyle
 {
-    UIWindow *window = self.view.window;
-    if (window)
-        return window.traitCollection.userInterfaceStyle;
+    UITraitCollection *traits = self.view.window.windowScene.screen.traitCollection;
+    if (traits.userInterfaceStyle != UIUserInterfaceStyleUnspecified)
+        return traits.userInterfaceStyle;
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -118,6 +118,13 @@
                                                                      withHandler:^(__kindof id<UITraitEnvironment> traitEnvironment, UITraitCollection *previousCollection) {
             [weakSelf updateBackgroundImage];
         }];
+
+        // Filet de sécurité : re-vérifier à chaque retour au premier plan
+        // (ex. après avoir basculé clair/sombre depuis le centre de contrôle).
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(updateBackgroundImage)
+                                                     name:UIApplicationDidBecomeActiveNotification
+                                                   object:nil];
     }
 }
 
