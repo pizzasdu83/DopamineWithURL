@@ -48,12 +48,23 @@
     return _image;
 }
 
+// Essaie le nom tel quel, puis sans extension (le nom d'un imageset n'a pas de ".jpg").
+- (UIImage *)loadImageNamed:(NSString *)name
+{
+    UIImage *img = [UIImage imageNamed:name];
+    if (img == nil)
+        img = [UIImage imageNamed:[name stringByDeletingPathExtension]];
+    if (img == nil)
+        NSLog(@"[DOTheme] image introuvable : %@", name);
+    return img;
+}
+
 - (UIImage *)imageForUserInterfaceStyle:(UIUserInterfaceStyle)style
 {
     if (style == UIUserInterfaceStyleDark && self.darkImageName.length > 0)
     {
         if (_darkImage == nil)
-            _darkImage = [[UIImage imageNamed:self.darkImageName] imageWithBlur:self.blur];
+            _darkImage = [[self loadImageNamed:self.darkImageName] imageWithBlur:self.blur];
         if (_darkImage != nil)
             return _darkImage;
     }
