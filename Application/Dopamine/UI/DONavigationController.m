@@ -14,6 +14,7 @@
 @interface DONavigationController ()
 
 @property (nonatomic) UIImageView *backgroundImageView;
+@property (nonatomic) id traitChangeRegistration;
 @property (nonatomic) DOMainViewController *mainView;
 @property (nonatomic) DOModalBackAction *backAction;
 
@@ -41,7 +42,7 @@
     
     self.view.backgroundColor = [UIColor blackColor];
     self.backgroundImageView = [[UIImageView alloc] init];
-    self.backgroundImageView.image = [theme image];
+    self.backgroundImageView.image = [theme imageForUserInterfaceStyle:[self systemInterfaceStyle]];
     self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.backgroundImageView.translatesAutoresizingMaskIntoConstraints = NO;
     self.backgroundImageView.userInteractionEnabled = NO;
@@ -70,6 +71,54 @@
         [self.backAction.topAnchor constraintEqualToAnchor:self.view.topAnchor],
         [self.backAction.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor],
     ]];
+}
+
+// Le style RÉEL du système. self.traitCollection est inutilisable ici car
+// ce contrôleur force .dark (setOverrideUserInterfaceStyle) : on interroge donc
+// la fenêtre (non overridée), ou l'écran tant que la vue n'est pas dans une fenêtre.
+- (UIUserInterfaceStyle)systemInterfaceStyle
+{
+    UIWindow *window = self.view.window;
+    if (window)
+        return window.traitCollection.userInterfaceStyle;
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    return [UIScreen mainScreen].traitCollection.userInterfaceStyle;
+#pragma clang diagnostic pop
+}
+
+- (void)updateBackgroundImage
+{
+    DOTheme *theme = [[DOThemeManager sharedInstance] enabledTheme];
+    UIImage *newImage = [theme imageForUserInterfaceStyle:[self systemInterfaceStyle]];
+    if (newImage == nil || newImage == self.backgroundImageView.image)
+        return;
+
+    [UIView transitionWithView:self.backgroundImageView
+                      duration:0.3
+                       options:UIViewAnimationOptionTransitionCrossDissolve | UIViewAnimationOptionAllowUserInteraction
+                    animations:^{
+        self.backgroundImageView.image = newImage;
+    } completion:nil];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+
+    // La vue est maintenant dans une fenêtre : on peut lire le vrai style
+    // et s'abonner aux changements clair/sombre du système.
+    [self updateBackgroundImage];
+
+    if (self.traitChangeRegistration == nil && self.view.window != nil)
+    {
+        __weak typeof(self) weakSelf = self;
+        self.traitChangeRegistration = [self.view.window registerForTraitChanges:@[ UITraitUserInterfaceStyle.class ]
+                                                                     withHandler:^(__kindof id<UITraitEnvironment> traitEnvironment, UITraitCollection *previousCollection) {
+            [weakSelf updateBackgroundImage];
+        }];
+    }
 }
 
 - (void)setBackgroundDimmed:(BOOL)dimmed
