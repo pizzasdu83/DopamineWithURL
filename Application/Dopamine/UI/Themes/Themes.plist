@@ -9,6 +9,8 @@
 		<string>Dopamine Launcher</string>
 		<key>image</key>
 		<string>Background_Green.jpg</string>
+		<key>imageDark</key>
+		<string>Background_GreenDarkMode.jpg</string>
 		<key>actionMenuColor</key>
 		<string>723f3f3f</string>
 		<key>windowColor</key>

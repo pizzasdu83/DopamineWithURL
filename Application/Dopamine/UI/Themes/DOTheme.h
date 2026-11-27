@@ -25,6 +25,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (UIImage *)generateBootLogo;
 
+// Renvoie le fond dark mode si le thème en a un ET que le style demandé est Dark,
+// sinon le fond normal.
+- (UIImage *)imageForUserInterfaceStyle:(UIUserInterfaceStyle)style;
+
 @end
 
 

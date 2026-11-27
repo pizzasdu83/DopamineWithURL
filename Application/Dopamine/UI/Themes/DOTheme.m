@@ -10,6 +10,8 @@
 
 @interface DOTheme ()
 @property (nonatomic, retain) NSString *imageName;
+@property (nonatomic, retain) NSString *darkImageName;
+@property (nonatomic, retain) UIImage *darkImage;
 @end
 
 @implementation DOTheme
@@ -22,6 +24,7 @@
         self.icon = [dictionary objectForKey:@"icon"];
         self.key = [dictionary objectForKey:@"key"];
         self.imageName = [dictionary objectForKey:@"image"];
+        self.darkImageName = [dictionary objectForKey:@"imageDark"];
         self.windowColor = [self colorFromHexString:[dictionary objectForKey:@"windowColor"]];
         self.actionMenuColor = [self colorFromHexString:[dictionary objectForKey:@"actionMenuColor"]];
         self.blur = [[dictionary objectForKey:@"blur"] floatValue];
@@ -43,6 +46,18 @@
     if (_image == nil)
         _image = [[UIImage imageNamed:self.imageName] imageWithBlur:self.blur];
     return _image;
+}
+
+- (UIImage *)imageForUserInterfaceStyle:(UIUserInterfaceStyle)style
+{
+    if (style == UIUserInterfaceStyleDark && self.darkImageName.length > 0)
+    {
+        if (_darkImage == nil)
+            _darkImage = [[UIImage imageNamed:self.darkImageName] imageWithBlur:self.blur];
+        if (_darkImage != nil)
+            return _darkImage;
+    }
+    return [self image];
 }
 
 - (UIImage *)generateBootLogo
